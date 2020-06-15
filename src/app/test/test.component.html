@@ -1,0 +1,33 @@
+<div class="card m-5">
+
+	<h1 class="card-header">Test Work</h1>
+
+	<div class="card-body">
+		<h3>Users List</h3>
+
+		<div *ngIf="users.length > 0">
+			<ul>
+				<li *ngFor="let user of users; let i = index" class="row">
+					<span class="col-sm-2">{{user.id}} : {{user.name | uppercase}}</span>
+					<button class="btn btn-link" (click)="DeleteUser(i)">Delete</button>
+					<a class="btn btn-link" [routerLink]="['/editUser', i]" routerLinkActive="active">Edit</a>
+				</li>
+			</ul>
+		</div>
+		<div *ngIf="users.length <= 0">
+			<div>List empty</div>
+		</div>
+
+		<h3>New User</h3>
+
+		<div>
+			<input type="text" class="form-control col-sm-2" [(ngModel)]="newId" placeholder="Id"><br>
+			<input type="text" class="form-control col-sm-2" [(ngModel)]="newName" placeholder="Name"><br>
+			<button class="btn btn-primary col-sm-1" (click)="AddUser(newId, newName)">Add</button>
+		</div>
+	</div>
+
+</div>
+<router-outlet>
+		
+</router-outlet>

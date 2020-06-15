@@ -1,0 +1,12 @@
+<div class="card m-5">
+
+	<h1 class="card-header">Edit Work</h1>
+
+	<div class="card-body">
+		<div *ngIf="editUser">Yes</div>
+		<input type="text" class="form-control col-sm-2" [(ngModel)]="updateId" [value]="users[index].id"><br>
+		<input type="text" class="form-control col-sm-2" [(ngModel)]="updateName" value="{{users[index].name}}"><br>
+		<button class="btn btn-primary col-sm-1" (click)="UpdateUser(updateId, updateName, index)">Save</button>
+	</div>
+
+</div>
